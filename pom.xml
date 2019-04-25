@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.datascan</groupId>
+  <artifactId>sgindustry</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>sgindustry Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <packaging>war</packaging>
+  
+  <!-- 指定spring版本 -->
+  <parent>
+  	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-parent</artifactId>
+	<version>2.1.3.RELEASE</version>
+	<relativePath /> <!-- lookup parent from repository -->
+  </parent>
+  
+  <!-- 指定jdk版本和编码格式 -->
+  <properties>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	<java.version>1.8</java.version>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-web</artifactId>
+	</dependency>
+	
+	<dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    
+    <dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-devtools</artifactId>
+		<scope>runtime</scope>
+	</dependency>
+	
+	<!--添加通用Mapper依赖 -->
+	<!-- https://mvnrepository.com/artifact/tk.mybatis/mapper-spring-boot-starter -->
+	<dependency>
+	    <groupId>tk.mybatis</groupId>
+	    <artifactId>mapper-spring-boot-starter</artifactId>
+	    <version>2.1.5</version>
+	</dependency>
+	
+	
+	<!-- oracle -->
+    <dependency>
+        <groupId>com.oracle</groupId>
+        <artifactId>ojdbc6</artifactId>
+        <version>11.2.0.3</version>
+    </dependency>
+    
+    <dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-tomcat</artifactId>
+		<scope>provided</scope>
+	</dependency>
+	
+	<!--添加Test依赖 -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+		<scope>test</scope>
+	</dependency>
+
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<scope>provided</scope>
+	</dependency>
+	
+	<!--添加Druid连接池依赖 -->
+	<dependency>
+	    <groupId>com.alibaba</groupId>
+	    <artifactId>druid</artifactId>
+	    <version>1.1.10</version>
+	</dependency>
+	
+	
+	<!-- Mybatis -->
+	<dependency>
+	    <groupId>org.mybatis.spring.boot</groupId>
+	    <artifactId>mybatis-spring-boot-starter</artifactId>
+	    <version>2.0.1</version>
+	</dependency>
+    
+  </dependencies>
+  
+  <!--构建信息-->
+    <build>
+    	<finalName>sgindustry</finalName>
+        <plugins>
+            <plugin><!--可执行的JAR/WAR-->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+  
+</project>
