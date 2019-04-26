@@ -1,0 +1,14 @@
+package com.scan.sgindustry.mapper;
+
+import com.scan.sgindustry.entity.User;
+
+import tk.mybatis.mapper.common.Mapper;
+
+/**
+ * 继承通用Mapper获取CURD方法
+ * @author Administrator
+ *
+ */
+public interface UserMapper extends Mapper<User> {
+
+}
