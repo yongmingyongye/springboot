@@ -10,5 +10,7 @@ import com.scan.sgindustry.tools.BaseService;
  * @param 
  */
 public interface UserService extends BaseService<User> {
+	
+	
 
 }

@@ -1,14 +1,18 @@
 package com.scan.sgindustry.mapper;
 
-import com.scan.sgindustry.entity.User;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
-import tk.mybatis.mapper.common.Mapper;
+import com.scan.sgindustry.entity.User;
+import com.scan.sgindustry.tools.MyBaseMapper;
 
 /**
  * 继承通用Mapper获取CURD方法
  * @author Administrator
  *
  */
-public interface UserMapper extends Mapper<User> {
+@Mapper
+@Component
+public interface UserMapper extends MyBaseMapper<User> {
 
 }
