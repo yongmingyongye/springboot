@@ -2,6 +2,8 @@ package com.scan.sgindustry.tools;
 
 import java.util.List;
 
+import tk.mybatis.mapper.entity.Example;
+
 /**
  * 通用service
  * @author fx
@@ -21,6 +23,8 @@ public interface BaseService<T> {
     int save(T entity);
 
     int delete(T entity);
+    
+    List<T> selectByExample(Example example);
     
     List<T> selectPage(int pageNum, int pageSize);
 

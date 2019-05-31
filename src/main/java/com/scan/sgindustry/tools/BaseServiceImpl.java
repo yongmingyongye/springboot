@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.github.pagehelper.PageHelper;
 
 import tk.mybatis.mapper.common.Mapper;
+import tk.mybatis.mapper.entity.Example;
 
 /**
  * 封装常用CRUD方法，多表及复杂查询请使用sql
@@ -64,5 +65,10 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         PageHelper.startPage(pageNum,pageSize);
         return mapper.select(entity);
     }
+
+	@Override
+	public List<T> selectByExample(Example example) {
+		return mapper.selectByExample(example);
+	}
 
 }

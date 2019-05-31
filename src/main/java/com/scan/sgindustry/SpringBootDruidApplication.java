@@ -18,7 +18,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableAsync
 //注意要加上@ServletComponentScan注解，否则Servlet无法生效 -----Druid监控
 @ServletComponentScan
-@MapperScan("com.scan.sgindustry.mapper")
+@MapperScan(basePackages = {"com.scan.sgindustry.mapper"})
 //@EnableRedisHttpSession
 public class SpringBootDruidApplication {
 	
