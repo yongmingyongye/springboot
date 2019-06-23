@@ -30,4 +30,5 @@ public interface BaseService<T> {
 
     List<T> selectPage(int pageNum, int pageSize, T entity);
 
+    List<T> selectPage(int pageNum, int pageSize, String orderby, T entity);
 }

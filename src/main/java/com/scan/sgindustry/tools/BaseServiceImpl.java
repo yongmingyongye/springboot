@@ -71,4 +71,10 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 		return mapper.selectByExample(example);
 	}
 
+	@Override
+	public List<T> selectPage(int pageNum, int pageSize, String orderby, T entity) {
+		PageHelper.startPage(pageNum, pageSize, orderby);
+        return mapper.select(entity);
+	}
+
 }

@@ -44,11 +44,6 @@
         <artifactId>spring-boot-starter-security</artifactId>
     </dependency> -->
     
-    <dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-devtools</artifactId>
-		<scope>runtime</scope>
-	</dependency>
 	
 	<!--添加通用Mapper依赖 -->
 	<!-- https://mvnrepository.com/artifact/tk.mybatis/mapper-spring-boot-starter -->
@@ -97,7 +92,7 @@
 	<!--添加Druid连接池依赖 -->
 	<dependency>
 	    <groupId>com.alibaba</groupId>
-	    <artifactId>druid</artifactId>
+	    <artifactId>druid-spring-boot-starter</artifactId>
 	    <version>1.1.10</version>
 	</dependency>
 	
@@ -133,6 +128,12 @@
 	    <scope>provided</scope>
 	</dependency>
 	
+	<dependency>
+	   <groupId>org.springframework.boot</groupId>
+	   <artifactId>spring-boot-devtools</artifactId>
+	   <optional>true</optional>
+	</dependency>
+	
 	<!--redis 依赖-->
     <!-- <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -153,6 +154,9 @@
             <plugin><!--可执行的JAR/WAR-->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+					<fork>true</fork> <!-- 如果没有该配置，devtools不会生效 -->
+				</configuration>
             </plugin>
         </plugins>
     </build>
