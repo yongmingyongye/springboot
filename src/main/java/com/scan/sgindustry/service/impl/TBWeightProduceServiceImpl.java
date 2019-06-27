@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.scan.sgindustry.entity.TBWeightProduce;
 import com.scan.sgindustry.mapper.TBWeightProduceMapper;
 import com.scan.sgindustry.service.TBWeightProduceService;
-import com.scan.sgindustry.tools.BaseServiceImpl;
+import com.scan.sgindustry.service.impl.common.BaseServiceImpl;
 
 import tk.mybatis.mapper.entity.Example;
 import tk.mybatis.mapper.entity.Example.Criteria;
@@ -28,6 +28,10 @@ public class TBWeightProduceServiceImpl extends BaseServiceImpl<TBWeightProduce>
 		criteria.andEqualTo("id", weightProduceId);
 		criteria.andNotEqualTo("status", "99");
 		criteria.andIsNull("reqcode");
+		Criteria criteria2 = example.createCriteria();
+		criteria2.andEqualTo("by1", "");
+		criteria2.orIsNull("by1");
+		example.and(criteria2);
 		return tbWeightProduceMapper.selectByExample(example);
 	}
 	

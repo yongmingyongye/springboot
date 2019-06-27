@@ -38,7 +38,7 @@ public interface CopyBrandMapper extends MyBaseMapper<CopyBrand> {
 			+ "status,"
 			+ "print_count,"
 			+ "create_time"
-			+ " from t_erp_copybrand t where t.notice_number = #{noticeNumber,jdbcType=VARCHAR}")
+			+ " from t_erp_copybrand t where t.notice_number = #{noticeNumber,jdbcType=VARCHAR} and t.status <> '99'")
 	CopyBrand selectByNoticeNumber(String noticeNumber);
 	
 	/**

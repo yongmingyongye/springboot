@@ -12,11 +12,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * 抄牌明细
+ * 二维码扫描信息DTO对象
  * @author fx
- *
+ * @version 1.0.0
+ * 此对象原先为copyBrandDetail表的对象，因业务调整不在使用该表，而客户端已与此对象对接，
+ * 在不影响客户端的使用的情况下，不修改此类的名称的，仅仅更换对照表和关联字段
  */
-@Table(name = "t_erp_copybrand_details")
+@Table(name = "TB_WEIGHT_PRODUCE")
 @Data // IDE必须有lombok插件才能使用，该注解 包含@Getter @Setter @RequiredArgsConstructor @ToString @EqualsAndHashCode
 @NoArgsConstructor //生成一个无参构造方法
 @AllArgsConstructor //会生成一个包含所有变量的构造方法
@@ -27,34 +29,44 @@ public class CopyBrandDetails implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	//棒材计量编号
 	@Id
-	@Column(name = "id")
+	@Column(name = "ID")
 	private Integer id;
-	@Column(name = "copybrand_id")
-	private Integer copybrandId;//抄牌主表Id
-	@Column(name = "notice_number")
-	private String noticeNumber;//销售通知单号
-	@Column(name = "steelno")
-	private String steelno;//钢铁号
-	@Column(name = "width")
-	private Double width;//宽度（直径,规格）
-	@Column(name = "suttle")
-	private Double suttle;//净重
-	@Column(name = "stoveno")
-	private String stoveno;//炉批号
-	@Column(name = "concode")
-	private String concode;//合同号（生产号）
-	@Column(name = "sheaf")
-	private String sheaf;//捆号由两位字母加炉批号加3位数字组成
-	@Column(name = "quantity")
-	private Integer quantity;//件数
-	@Column(name = "weight_produce_id")
-	private Integer weightProduceId;//棒材计量编号
-	@Column(name = "status")
-	private String status;//状态，'0'：正常,'99'：作废,默认'0'
-	@Column(name = "create_time")
-	private Date createTime;//创建时间
-	@Column(name = "create_user")
-	private String createUser;//创建人工号
+	//销售通知单号,用于反写二维扫描后填写对应抄牌的通知单号
+	@Column(name = "BY1")
+	private String noticeNumber;
+	//钢铁号
+	@Column(name = "STEELNO")
+	private String steelno;
+	//宽度（直径,规格）
+	@Column(name = "WIDTH")
+	private Double width;
+	//净重
+	@Column(name = "SUTTLE")
+	private Double suttle;
+	//炉批号
+	@Column(name = "STOVENO")
+	private String stoveno;
+	//合同号（生产号）
+	@Column(name = "CONCODE")
+	private String concode;
+	//捆号由两位字母加炉批号加3位数字组成
+	@Column(name = "SHEAF")
+	private String sheaf;
+	//件数
+	@Column(name = "QUANTITY")
+	private Integer quantity;
+	//扫描操作人工号
+	@Column(name = "BY2")
+	private String scanOperatorWorkNo;
+	//扫描操作人姓名
+	@Column(name = "BY3")
+	private String scanOperatorName;
+	//二维码扫描时间
+	@Column(name = "SCANTIME")
+	private Date scanTime;
+	@Column(name = "STATUS")
+    private String status;//0:初始化；99：实物出库完成
 
 }

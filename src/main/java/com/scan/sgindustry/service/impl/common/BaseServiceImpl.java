@@ -1,4 +1,4 @@
-package com.scan.sgindustry.tools;
+package com.scan.sgindustry.service.impl.common;
 
 import java.util.List;
 
@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.PageHelper;
+import com.scan.sgindustry.service.common.BaseService;
+import com.scan.sgindustry.tools.MyBaseMapper;
 
-import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.entity.Example;
 
 /**
@@ -19,7 +20,7 @@ import tk.mybatis.mapper.entity.Example;
 public class BaseServiceImpl<T> implements BaseService<T> {
 
 	@Autowired
-	private Mapper<T> mapper;//泛型装配
+	private MyBaseMapper<T> mapper;//泛型装配
 	
 	@Override
     public T selectByKey(Object key) {
@@ -76,5 +77,12 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 		PageHelper.startPage(pageNum, pageSize, orderby);
         return mapper.select(entity);
 	}
+
+    @Override
+    public Integer updateBatchByPrimaryKeySelective(List<T> list) {
+        // TODO Auto-generated method stub
+        return mapper.updateBatchByPrimaryKeySelective(list);
+    }
+    
 
 }

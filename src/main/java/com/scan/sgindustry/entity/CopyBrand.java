@@ -26,7 +26,7 @@ public class CopyBrand implements Serializable {
 	@Column(name = "notice_number")
 	private String noticeNumber;//销售通知单号
 	@Column(name = "user_number")
-	private String userNumber;//抄牌人
+	private String userNumber;//抄牌人(作废人)
 	@Column(name = "vehicle_number")
 	private String vehicleNumber;//车船号
 	@Column(name = "status")

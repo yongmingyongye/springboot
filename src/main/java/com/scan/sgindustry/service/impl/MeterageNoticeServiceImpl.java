@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.scan.sgindustry.entity.MeterageNotice;
 import com.scan.sgindustry.mapper.MeterageNoticeMapper;
 import com.scan.sgindustry.service.MeterageNoticeService;
-import com.scan.sgindustry.tools.BaseServiceImpl;
+import com.scan.sgindustry.service.impl.common.BaseServiceImpl;
 
 @Service
 public class MeterageNoticeServiceImpl extends BaseServiceImpl<MeterageNotice> implements MeterageNoticeService {

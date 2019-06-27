@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.scan.sgindustry.entity.TBWeight;
 import com.scan.sgindustry.mapper.TBWeightMapper;
 import com.scan.sgindustry.service.TBWeightService;
-import com.scan.sgindustry.tools.BaseServiceImpl;
+import com.scan.sgindustry.service.impl.common.BaseServiceImpl;
 
 @Service
 public class TBWeightServiceImpl extends BaseServiceImpl<TBWeight> implements TBWeightService {

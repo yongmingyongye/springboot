@@ -60,11 +60,11 @@ public class TBWeightProduce implements Serializable {
 	@Column(name = "RECEIVEID")
 	private String receiveid;//接受单ID
 	@Column(name = "BY1")
-	private String by1;
+	private String by1;//二维码扫描时的通知单号
 	@Column(name = "BY2")
-	private String by2;
+	private String by2;//二维码扫描人工号
 	@Column(name = "BY3")
-	private String by3;
+	private String by3;//二维码扫描人姓名
 	@Column(name = "BY4")
 	private String by4;
 	@Column(name = "BY5")
@@ -109,5 +109,7 @@ public class TBWeightProduce implements Serializable {
 	private String gage;//是否定尺,默认'T'
 	@Column(name = "RKTIME")
 	private Date rktime;//入库时间
+	@Column(name = "SCANTIME")
+	private Date scanTime;//二维码扫描时间
 	
 }

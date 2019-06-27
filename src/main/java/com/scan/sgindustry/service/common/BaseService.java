@@ -1,4 +1,4 @@
-package com.scan.sgindustry.tools;
+package com.scan.sgindustry.service.common;
 
 import java.util.List;
 
@@ -31,4 +31,11 @@ public interface BaseService<T> {
     List<T> selectPage(int pageNum, int pageSize, T entity);
 
     List<T> selectPage(int pageNum, int pageSize, String orderby, T entity);
+    
+    /**
+     * 根据id批量更新,不更新非空字段
+     * @return
+     */
+    Integer updateBatchByPrimaryKeySelective(List<T> list);
+    
 }
