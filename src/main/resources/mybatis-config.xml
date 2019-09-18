@@ -4,6 +4,6 @@
 	<settings>
 		<!-- 当没有为参数提供特定的 JDBC 类型时，为空值指定 JDBC 类型。 某些驱动需要指定列的 JDBC 类型，多数情况直接用一般类型即可，比如 NULL、VARCHAR 或 OTHER。  -->
 		<setting name="jdbcTypeForNull" value="NULL"/>
-		<setting name="logImpl" value="STDOUT_LOGGING" />
+		<!-- <setting name="logImpl" value="STDOUT_LOGGING" /> -->
 	</settings>
 </configuration>

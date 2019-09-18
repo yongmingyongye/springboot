@@ -77,14 +77,14 @@ public class UserController {
     public ResponseEntity<JsonResult<Object>> login(HttpServletRequest request, @RequestBody User user) {
 		
     	if(user == null || StringUtils.isBlank(user.getLoginName()) || StringUtils.isBlank(user.getPassword())) {
-    		return ResponseEntity.ok(new JsonResult<>(1, "用户名或密码不为空", null));
+    		return ResponseEntity.ok(new JsonResult<>(1, "101", null));
 		}
     	User userOld = userService.get(user);
     	if(userOld == null) {
-    		return ResponseEntity.ok(new JsonResult<>(1, "用户名或密码错误", user));
+    		return ResponseEntity.ok(new JsonResult<>(1, "102", user));
     	}
     	if(StringUtils.isBlank(userOld.getPassword()) || !user.getPassword().equals(userOld.getPassword())) {
-    		return ResponseEntity.ok(new JsonResult<>(1, "数据库用户异常，请与管理员联系", userOld));
+    		return ResponseEntity.ok(new JsonResult<>(1, "103", userOld));
     	}
     	request.getSession().setAttribute("user", userOld);
     	Map<String, Object> map = new HashMap<>();

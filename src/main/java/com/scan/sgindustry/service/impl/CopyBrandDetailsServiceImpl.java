@@ -2,6 +2,7 @@ package com.scan.sgindustry.service.impl;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class CopyBrandDetailsServiceImpl extends BaseServiceImpl<CopyBrandDetail
 	@Autowired
 	private CopyBrandDetailsMapper copyBrandDetailsMapper;
 	
-	public List<CopyBrandDetails> selectByNoticeNumber(String  noticeNumber) {
+	public List<CopyBrandDetails> selectByBatcheId(String  noticeNumber) {
 		//写自定义查询条件
 		Example example = new Example(CopyBrandDetails.class);
 		Criteria criteria = example.createCriteria();
@@ -29,6 +30,34 @@ public class CopyBrandDetailsServiceImpl extends BaseServiceImpl<CopyBrandDetail
 		example.setOrderByClause("scanTime desc");
 		return copyBrandDetailsMapper.selectByExample(example);
 	}
+	
+	public CopyBrandDetails selectByStovenoAndSheaf(String stoveno, String sheaf) {
+	    if(StringUtils.isBlank(stoveno)) {
+	        return null;
+	    }
+	    //写自定义查询条件
+        Example example = new Example(CopyBrandDetails.class);
+        Criteria criteria = example.createCriteria();
+        //拼接炉号查询条件
+        StringBuilder stovenoBuilder = new StringBuilder();
+        stovenoBuilder.append(stoveno.substring(0, 8))
+            .append("%")
+            .append(stoveno.substring(stoveno.length() - 2));
+        criteria.andLike("stoveno", stovenoBuilder.toString())
+            .andEqualTo("sheaf", sheaf)
+            .andNotEqualTo("status", "99");
+	    return copyBrandDetailsMapper.selectOneByExample(example);
+	}
+
+    @Override
+    public List<CopyBrandDetails> selectByNoticeNumber(String noticeNumber) {
+      //写自定义查询条件
+        Example example = new Example(CopyBrandDetails.class);
+        Criteria criteria = example.createCriteria();
+        criteria.andLike("noticeNumber", noticeNumber + "%");
+        criteria.andNotEqualTo("status", "99");
+        return copyBrandDetailsMapper.selectByExample(example);
+    }
 
     
 }

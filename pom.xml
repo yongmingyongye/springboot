@@ -119,7 +119,7 @@
     <dependency>
 	    <groupId>org.apache.commons</groupId>
 	    <artifactId>commons-lang3</artifactId>
-	    </dependency>
+    </dependency>
 	
 	<!-- 简化java代码 -->
 	<dependency>
@@ -132,6 +132,18 @@
 	   <groupId>org.springframework.boot</groupId>
 	   <artifactId>spring-boot-devtools</artifactId>
 	   <optional>true</optional>
+	</dependency>
+	
+	<dependency>
+	   <groupId>org.springframework.boot</groupId>
+	   <artifactId>spring-boot-starter-thymeleaf</artifactId>
+	</dependency>
+	
+	<!-- application.properties智能提示 -->
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-configuration-processor</artifactId>
+	    <optional>true</optional>
 	</dependency>
 	
 	<!--redis 依赖-->

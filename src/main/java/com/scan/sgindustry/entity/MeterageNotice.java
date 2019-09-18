@@ -69,7 +69,7 @@ public class MeterageNotice implements Serializable {
 	private Integer netvalue; //干基
 	@Column(name = "gh")
 	private String gh; //钢号
-	@Column(name = "DWMC")
+	@Column(name = "dwmc")
 	private String dwmc; //单位名称
 	@Column(name = "DBGSMC")
 	private String dbgsmc; //代办公司名称
